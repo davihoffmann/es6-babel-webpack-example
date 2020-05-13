@@ -17,7 +17,7 @@ class App {
     }
 
     setLoading(loading = true) {
-        if(loading === true) {
+        if (loading === true) {
             let loadingEl = document.createElement('span');
             loadingEl.appendChild(document.createTextNode('Carregando...'));
             loadingEl.setAttribute('id', 'loading');
@@ -33,11 +33,11 @@ class App {
 
         const repoInput = this.inputEl.value;
 
-        if(repoInput.length === 0)
+        if (repoInput.length === 0)
             return;
 
         this.setLoading();
-        
+
         try {
             const response = await api.get(`/repos/${repoInput}`);
 
@@ -53,7 +53,7 @@ class App {
             this.inputEl.value = '';
 
             this.render();
-        } catch(err) {
+        } catch (err) {
             alert('O repositório não existe!');
         }
         this.setLoading(false);
@@ -82,7 +82,7 @@ class App {
             listItemEl.appendChild(titleEl);
             listItemEl.appendChild(descriptionEl);
             listItemEl.appendChild(linkEl);
-            
+
             this.listEl.appendChild(listItemEl);
         });
     }
